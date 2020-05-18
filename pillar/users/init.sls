@@ -1,4 +1,4 @@
-{% import_text '/srv/pillar/user-passwords.txt' as password %}
+{% import_text '/srv/pillar/user-passwords.txt' as password1 %}
 {% import_yaml 'users/users.yml' as users1 %}
 # Instruction to add a new user
 # Use file users.yml
@@ -8,7 +8,7 @@
 users:
 {% for username, sshkey in users1.items() %}
   {{ username }}:
-    password: {{ password }}
+    password: {{ password1 }}
     enforce_password: True
     home: /home/{{ username }}
     homedir_owner: {{ username }}
